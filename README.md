@@ -146,6 +146,15 @@ npm run dev
 
 ---
 
+## 📄 Project Report
+
+The complete hackathon report is available below.
+
+- [IIT Indore × HAL Hackathon Team VayuCops Report](reports/IIT_Indore-HAL_Hackathon_Team_VayuCops.pdf)
+
+---
+
+
 # 👨‍💻 Authors
 
 Team Name 
