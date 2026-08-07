@@ -174,3 +174,6 @@ MIT
 Live at 
 
 https://aerothon-2026.onrender.com
+
+# Frontend_Live 
+aerothon-2026-beta.vercel.app/
