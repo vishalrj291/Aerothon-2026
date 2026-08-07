@@ -1,0 +1,6 @@
+Check,Value,Status
+Missing Values,0,PASS
+Duplicate Rows,0,PASS
+Constant Features,0,PASS
+Near Zero Variance,0,PASS
+Highly Correlated Features,6,WARNING

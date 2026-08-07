@@ -34,3 +34,19 @@ yarn-error.log*
 .idea/
 .DS_Store
 Thumbs.db
+# React
+frontend/node_modules/
+frontend/dist/
+
+# Python
+__pycache__/
+*.pyc
+
+# CatBoost
+catboost_info/
+
+# Logs
+logs/
+
+# VS Code
+.vscode/

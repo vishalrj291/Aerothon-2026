@@ -19,3 +19,21 @@ Thumbs.db
 .venv/
 src/venv/
 *.pyc
+# Trained Models
+models/
+
+# Predictions
+predictions/
+
+# CatBoost
+catboost_info/
+
+# Node
+frontend/node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+logs/
