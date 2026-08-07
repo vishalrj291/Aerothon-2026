@@ -1,11 +1,10 @@
-
 # ✈️ AeroTwin: Physics-Informed Four-Stage Turbojet Digital Twin
 
 > Physics-informed Digital Twin for real-time turbojet engine health monitoring, performance prediction, explainable AI, predictive maintenance, and engineering decision support.
 
 ---
 
-## 🚀 Project Overview 
+## 🚀 Project Overview
 
 AeroTwin is an end-to-end Digital Twin developed using the official hackathon dataset. The project combines aerospace engineering principles with machine learning to estimate hidden engine health states, predict engine performance, diagnose faults, recommend maintenance actions, and visualize the complete engine condition through an interactive dashboard.
 
@@ -27,7 +26,39 @@ AeroTwin is an end-to-end Digital Twin developed using the official hackathon da
 
 ---
 
+# 🏗 Project Architecture
 
+(Add Architecture Diagram)
+
+---
+
+# 📊 Exploratory Data Analysis
+
+(Add only important figures)
+
+### Feature Correlation
+
+(image)
+
+Explain in 2-3 lines.
+
+---
+
+### Target Distribution
+
+(image)
+
+Explain in 2-3 lines.
+
+---
+
+### Sensor Relationships
+
+(image)
+
+Explain in 2-3 lines.
+
+---
 
 # ⚙ Physics-Informed Feature Engineering
 
@@ -71,12 +102,51 @@ Digital Twin Prediction
 | Thrust | CatBoost | 98.67% |
 | TSFC | CatBoost | 99.31% |
 
+---
 
+# 🔍 Explainable AI
 
+(Add SHAP Summary Plot)
 
+Explain what it shows.
 
+---
 
+# 📡 API
 
+POST /predict
+
+Example Request
+
+```json
+{
+  ...
+}
+```
+
+Example Response
+
+```json
+{
+ ...
+}
+```
+
+---
+
+# 🖥 Dashboard
+
+(Add Dashboard Screenshot)
+
+(Add Prediction Screenshot)
+
+(Add Health Gauges)
+
+(Add Fault Diagnosis Screenshot)
+
+(Add RUL Screenshot)
+
+---
 
 # 🛠 Tech Stack
 
@@ -146,15 +216,6 @@ npm run dev
 
 ---
 
-## 📄 Project Report
-
-The complete hackathon report is available below.
-
-- [IIT Indore × HAL Hackathon Team VayuCops Report](reports/IIT_Indore-HAL_Hackathon_Team_VayuCops.pdf)
-
----
-
-
 # 👨‍💻 Authors
 
 Team Name 
@@ -170,10 +231,3 @@ Members
 # 📜 License
 
 MIT
-# Backend_Live 
-Live at 
-
-https://aerothon-2026.onrender.com
-
-# Frontend_Live 
-aerothon-2026-beta.vercel.app/
