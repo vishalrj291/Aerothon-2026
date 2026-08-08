@@ -48,7 +48,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.add_middleware(timing_middleware)
+app.middleware("http")(timing_middleware)
 
 # ==========================================================
 # Exception Handlers

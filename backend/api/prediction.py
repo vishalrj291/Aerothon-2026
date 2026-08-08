@@ -8,7 +8,6 @@ Prediction API
 """
 
 import io
-
 import pandas as pd
 
 from fastapi import (
@@ -42,7 +41,11 @@ async def predict_csv(
 
     try:
 
-        if file.filename is None or not file.filename.lower().endswith(".csv"):
+        if (
+            file.filename is None
+            or
+            not file.filename.lower().endswith(".csv")
+        ):
 
             raise HTTPException(
                 status_code=400,
@@ -55,14 +58,28 @@ async def predict_csv(
             io.BytesIO(contents)
         )
 
-        result = predict_dataframe(df)
+        # ------------------------------------------
+        # Prediction + Fleet Summary
+        # ------------------------------------------
+
+        predictions, summary = predict_dataframe(df)
 
         return {
+
             "success": True,
-            "rows": len(result),
-            "predictions": result.to_dict(
-                orient="records"
-            ),
+
+            "rows": len(predictions),
+
+            "summary": summary,
+
+            "predictions":
+
+                predictions.to_dict(
+
+                    orient="records"
+
+                ),
+
         }
 
     except HTTPException:
@@ -71,13 +88,16 @@ async def predict_csv(
     except Exception as e:
 
         raise HTTPException(
+
             status_code=500,
+
             detail=f"Prediction failed: {str(e)}",
+
         )
 
 
 # ==========================================================
-# Predict Single Engine State
+# Predict Single Engine
 # ==========================================================
 
 
@@ -93,13 +113,19 @@ async def single_prediction(
         )
 
         return {
+
             "success": True,
-            "prediction": result,
+
+            **result,
+
         }
 
     except Exception as e:
 
         raise HTTPException(
+
             status_code=500,
+
             detail=f"Prediction failed: {str(e)}",
+
         )

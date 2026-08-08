@@ -1,26 +1,21 @@
 """
-=========================================================
 AeroTwin V6
 
 Dataset Derived Limits
-
 =========================================================
 """
 
-from pathlib import Path
-
 import pandas as pd
 
-DATASET_PATH = Path("dataset 2/full_dataset.csv")
+from src.utils.config import FULL_DATASET
 
 LIMITS = {}
 
 
 def load_limits():
-
     global LIMITS
 
-    df = pd.read_csv(DATASET_PATH)
+    df = pd.read_csv(FULL_DATASET)
 
     # Remove target columns if present
     target_columns = [
@@ -44,17 +39,13 @@ def load_limits():
             maximum = float(df[column].max())
 
             span = maximum - minimum
-
-            buffer = span * 0.05      # 5% tolerance
+            buffer = span * 0.05  # 5% tolerance
 
             limits[column] = {
-
                 "min": minimum - buffer,
-
                 "max": maximum + buffer,
-
             }
 
     LIMITS = limits
 
-    print(f"Loaded limits for {len(LIMITS)} features.")
+    print(f"✓ Loaded limits for {len(LIMITS)} features.")
