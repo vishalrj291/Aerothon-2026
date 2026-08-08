@@ -1,0 +1,9 @@
+{
+    "best_model": "XGBoost",
+    "R2": 0.8810980961454626,
+    "RMSE": 0.023124911600899245,
+    "MAE": 0.017951875560782704,
+    "MAPE": 2.0120418044526027,
+    "target": "CompressorHealth",
+    "n_features": 106
+}
