@@ -1,14 +1,11 @@
 """
-=========================================================
 AeroTwin V6
 
 Model Registry
 
 Contains all models used for:
-
 1. Fast Benchmarking
 2. Final Training
-
 =========================================================
 """
 
@@ -31,31 +28,27 @@ from src.utils.config import (
     MAX_DEPTH,
 )
 
-
 # ==========================================================
 # FAST BENCHMARK MODELS
 # ==========================================================
 
 def get_benchmark_models():
-    """
-    Fast models used only for benchmarking.
-    """
 
     return {
 
         "CatBoost": CatBoostRegressor(
             iterations=BENCHMARK_ESTIMATORS,
             learning_rate=BENCHMARK_LEARNING_RATE,
-            depth=MAX_DEPTH,
+            depth=6,
             loss_function="RMSE",
             verbose=False,
             random_seed=RANDOM_STATE,
         ),
 
         "XGBoost": XGBRegressor(
-            n_estimators=100,
+            n_estimators=BENCHMARK_ESTIMATORS,
             learning_rate=BENCHMARK_LEARNING_RATE,
-            max_depth=MAX_DEPTH,
+            max_depth=6,
             subsample=0.8,
             colsample_bytree=0.8,
             objective="reg:squarederror",
@@ -64,28 +57,37 @@ def get_benchmark_models():
         ),
 
         "LightGBM": LGBMRegressor(
-            n_estimators=100,
+            n_estimators=BENCHMARK_ESTIMATORS,
             learning_rate=BENCHMARK_LEARNING_RATE,
+            max_depth=6,
             random_state=RANDOM_STATE,
             verbose=-1,
         ),
 
         "ExtraTrees": ExtraTreesRegressor(
-            n_estimators=100,
+            n_estimators=BENCHMARK_ESTIMATORS,
+            max_depth=6,
+            min_samples_split=5,
+            min_samples_leaf=2,
+            max_features="sqrt",
             random_state=RANDOM_STATE,
             n_jobs=-1,
         ),
 
         "RandomForest": RandomForestRegressor(
-            n_estimators=100,
+            n_estimators=BENCHMARK_ESTIMATORS,
+            max_depth=6,
+            min_samples_split=5,
+            min_samples_leaf=2,
+            max_features="sqrt",
             random_state=RANDOM_STATE,
             n_jobs=-1,
         ),
 
         "HistGradientBoosting": HistGradientBoostingRegressor(
-            max_iter=100,
+            max_iter=BENCHMARK_ESTIMATORS,
             learning_rate=BENCHMARK_LEARNING_RATE,
-            max_depth=MAX_DEPTH,
+            max_depth=6,
             random_state=RANDOM_STATE,
         ),
     }
@@ -96,25 +98,22 @@ def get_benchmark_models():
 # ==========================================================
 
 def get_final_models():
-    """
-    High-quality models used after benchmarking.
-    """
 
     return {
 
         "CatBoost": CatBoostRegressor(
             iterations=FINAL_ESTIMATORS,
             learning_rate=FINAL_LEARNING_RATE,
-            depth=MAX_DEPTH,
+            depth=6,
             loss_function="RMSE",
             verbose=False,
             random_seed=RANDOM_STATE,
         ),
 
         "XGBoost": XGBRegressor(
-            n_estimators=700,
-            learning_rate=0.03,
-            max_depth=MAX_DEPTH,
+            n_estimators=FINAL_ESTIMATORS,
+            learning_rate=FINAL_LEARNING_RATE,
+            max_depth=6,
             subsample=0.8,
             colsample_bytree=0.8,
             objective="reg:squarederror",
@@ -123,37 +122,39 @@ def get_final_models():
         ),
 
         "LightGBM": LGBMRegressor(
-            n_estimators=700,
-            learning_rate=0.03,
+            n_estimators=FINAL_ESTIMATORS,
+            learning_rate=FINAL_LEARNING_RATE,
+            max_depth=6,
             random_state=RANDOM_STATE,
             verbose=-1,
         ),
 
         "ExtraTrees": ExtraTreesRegressor(
-           n_estimators=250,
-           max_depth=20,
-           min_samples_split=5,
-           min_samples_leaf=2,
-           max_features="sqrt",
-           bootstrap=False,
-           random_state=RANDOM_STATE,
-           n_jobs=-1,
-       ),
-
-        "RandomForest": RandomForestRegressor(
-            n_estimators=250,
-            max_depth=20,
+            n_estimators=150,
+            max_depth=6,
             min_samples_split=5,
             min_samples_leaf=2,
             max_features="sqrt",
+            bootstrap=False,
             random_state=RANDOM_STATE,
             n_jobs=-1,
-       ),
+        ),
+
+        "RandomForest": RandomForestRegressor(
+            n_estimators=150,
+            max_depth=6,
+            min_samples_split=5,
+            min_samples_leaf=2,
+            max_features="sqrt",
+            bootstrap=False,
+            random_state=RANDOM_STATE,
+            n_jobs=-1,
+        ),
 
         "HistGradientBoosting": HistGradientBoostingRegressor(
-            max_iter=700,
-            learning_rate=0.03,
-            max_depth=MAX_DEPTH,
+            max_iter=FINAL_ESTIMATORS,
+            learning_rate=FINAL_LEARNING_RATE,
+            max_depth=6,
             random_state=RANDOM_STATE,
         ),
     }
@@ -164,18 +165,6 @@ def get_final_models():
 # ==========================================================
 
 def get_model(model_name: str, final: bool = False):
-    """
-    Returns a single model by name.
-
-    Parameters
-    ----------
-    model_name : str
-        Name of the model.
-
-    final : bool
-        False -> Benchmark model
-        True  -> Final model
-    """
 
     models = (
         get_final_models()

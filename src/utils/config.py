@@ -81,19 +81,20 @@ GROUP_COLUMN = "EngineID"
 # MODEL BENCHMARKING
 # ==========================================================
 
-BENCHMARK_ESTIMATORS = 100
-
+BENCHMARK_ESTIMATORS = 50
+FINAL_ESTIMATORS = 200
+MAX_DEPTH = 6
 BENCHMARK_LEARNING_RATE = 0.05
 
 # ==========================================================
 # FINAL MODEL TRAINING
 # ==========================================================
 
-FINAL_ESTIMATORS = 700
+FINAL_ESTIMATORS = 150
 
 FINAL_LEARNING_RATE = 0.03
 
-MAX_DEPTH = 8
+MAX_DEPTH = 6
 
 # ==========================================================
 # FEATURE ENGINEERING
