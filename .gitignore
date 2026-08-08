@@ -20,7 +20,7 @@ Thumbs.db
 src/venv/
 *.pyc
 # Trained Models
-models/
+
 
 # Predictions
 predictions/
@@ -37,3 +37,4 @@ __pycache__/
 
 # Logs
 logs/
+# Trained Models
