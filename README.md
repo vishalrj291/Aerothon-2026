@@ -26,40 +26,6 @@ AeroTwin is an end-to-end Digital Twin developed using the official hackathon da
 
 ---
 
-# 🏗 Project Architecture
-
-(Add Architecture Diagram)
-
----
-
-# 📊 Exploratory Data Analysis
-
-(Add only important figures)
-
-### Feature Correlation
-
-(image)
-
-Explain in 2-3 lines.
-
----
-
-### Target Distribution
-
-(image)
-
-Explain in 2-3 lines.
-
----
-
-### Sensor Relationships
-
-(image)
-
-Explain in 2-3 lines.
-
----
-
 # ⚙ Physics-Informed Feature Engineering
 
 Describe:
@@ -104,13 +70,6 @@ Digital Twin Prediction
 
 ---
 
-# 🔍 Explainable AI
-
-(Add SHAP Summary Plot)
-
-Explain what it shows.
-
----
 
 # 📡 API
 
@@ -134,19 +93,7 @@ Example Response
 
 ---
 
-# 🖥 Dashboard
 
-(Add Dashboard Screenshot)
-
-(Add Prediction Screenshot)
-
-(Add Health Gauges)
-
-(Add Fault Diagnosis Screenshot)
-
-(Add RUL Screenshot)
-
----
 
 # 🛠 Tech Stack
 
